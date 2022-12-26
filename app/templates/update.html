@@ -115,7 +115,7 @@
                                 <div class="form-floating form-group">
                                     <!--                                    <label for="phone_number">Phone Number</label>-->
                                     <input type="phone" class="form-control" id="phone_number" name="phone_number"
-                                           placeholder="xxxx-xxxx-xxx" minlength="11" maxlength="13"  value="{{ cb.phone_number }}" required>
+                                           placeholder="xxxx-xxxx-xxx" minlength="11" maxlength="13" pattern="[0-9]*" value="{{ cb.phone_number }}" required>
                                 </div>
                             </div>
                         </div>
