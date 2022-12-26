@@ -117,7 +117,7 @@
                             <div class="col-md">
                                 <div class="form-floating form-group">
                                     <input type="input" class="form-control" id="floatingInputGrid" name="first_name"
-                                           placeholder="first name">
+                                           placeholder="first name" title="Please enter a first name" required>
                                     <label for="floatingInputGrid">First Name</label>
                                 </div>
                             </div>
@@ -125,7 +125,7 @@
                             <div class="col-md">
                                 <div class="form-floating form-group">
                                     <input type="input" class="form-control" id="floatingInputGrid" name="last_name"
-                                           placeholder="last name">
+                                           placeholder="last name" title="Please enter a last name" required>
                                     <label for="floatingInputGrid">Last Name</label>
                                 </div>
                             </div>
@@ -133,14 +133,14 @@
                             <div class="col-md">
                                 <div class="form-floating form-group">
                                     <input type="email" class="form-control" id="floatingInputGrid" name="email"
-                                           placeholder="name@example.com">
+                                           placeholder="name@example.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address"  required>
                                     <label for="floatingInputGrid">Email address</label>
                                 </div>
                             </div>
                             <div class="col-md">
                                 <div class="form-floating form-group">
                                     <input type="phone" class="form-control" id="floatingInputGrid" name="phone_number"
-                                           placeholder="xxxx-xxxx-xxx">
+                                           placeholder="xxxx-xxxx-xxx" minlength="11" maxlength="13" title="Please enter a valid phone number"  required>
                                     <label for="floatingInputGrid">Phone Number</label>
                                 </div>
                             </div>
