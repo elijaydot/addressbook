@@ -72,15 +72,26 @@ def viewaddress():
     return render_template('index.html', cb=cb)
 
 
+# @app.route('/delete/<int:id>', methods=['POST'])
+# def delete(id):
+#     cb = ContactBook.query.get(id)
+#
+#     db.session.delete(cb)
+#     db.session.commit()
+#
+#     return redirect(url_for('index'))
+
 @app.route('/delete/<int:id>', methods=['POST'])
 def delete(id):
     cb = ContactBook.query.get(id)
+    if cb is None:
+        flash('Contact not found')
+        return redirect(url_for('index'))
 
     db.session.delete(cb)
     db.session.commit()
 
     return redirect(url_for('index'))
-
 
 # @app.route('/update/<id>', methods=["GET", "POST"])
 # def update(id):
@@ -234,9 +245,27 @@ def delete(id):
 #     return redirect(url_for('index'))
 
 
+# @app.route('/update/<int:id>', methods=['GET', 'POST'])
+# def update(id):
+#     cb = ContactBook.query.get(id)
+#     if request.method == 'POST':
+#         cb.first_name = request.form['first_name']
+#         cb.last_name = request.form['last_name']
+#         cb.phone_number = request.form['phone_number']
+#         cb.email = request.form['email']
+#         db.session.commit()
+#         flash('Contact updated successfully!')
+#         return redirect(url_for('index'))
+#     return render_template('update.html', cb=cb)
+
 @app.route('/update/<int:id>', methods=['GET', 'POST'])
 def update(id):
+    # Check if the contact exists before trying to update it
     cb = ContactBook.query.get(id)
+    if cb is None:
+        flash('Contact does not exist')
+        return redirect(url_for('index'))
+
     if request.method == 'POST':
         cb.first_name = request.form['first_name']
         cb.last_name = request.form['last_name']
