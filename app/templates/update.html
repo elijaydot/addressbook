@@ -15,21 +15,25 @@
         <h1>TCN CCG Contact Book</h1>
     </div>
 
-    <div class="row border col-md-6">
-        <nav class="navbar navbar-light bg-light justify-content-between">
+    <div class="row  border col-md-6 justify-content-start" id="">
+        <nav class="navbar navbar-light bg-light justify-content-between d-flex sticky-top">
             <!--                  <a class="navbar-brand">Contacts</a>-->
-
-            <form class="form-inline" method="GET">
-                <input class="form-control" type="search" placeholder="Search" aria-label="Search" name="q">
-            </form>
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-
-            <div class="col-md-5">
-                <button type="button" class="btn btn-success" data-bs-toggle="modal"
-                        data-bs-target="#CreateContactModal">
-                    Add Contact
+            <div class="mx-auto">
+            <form class="form-inline" action="{{ url_for('index') }}" method="GET">
+                <div class="form-group d-inline-block">
+                    <input type="search" class="form-control mx-5" id="search-input" placeholder="Search" aria-label="Search"
+                           name="q">
+                </div>
+                <button type="submit" class="btn btn-outline-success d-inline-block mx-5" style="margin-right: 10px">Search</button>
+                <button type="button" class="btn btn-success mx-5 display-contact-body" data-bs-toggle="modal"
+                        data-bs-target="" onclick="history.back()" style="padding-left: 20px; padding-right: 20px">
+                    Home
                 </button>
+            </form>
             </div>
+<!--            <div class="col-md-5">-->
+
+<!--            </div>-->
         </nav>
     </div>
     <!--    Update Form -->
@@ -115,7 +119,7 @@
                                 <div class="form-floating form-group">
                                     <!--                                    <label for="phone_number">Phone Number</label>-->
                                     <input type="phone" class="form-control" id="phone_number" name="phone_number"
-                                           placeholder="xxxx-xxxx-xxx" minlength="11" maxlength="13" pattern="[0-9]*" value="{{ cb.phone_number }}" required>
+                                           placeholder="xxxx-xxxx-xxx" minlength="11" maxlength="13" pattern="\+[0-9]{1,15}" value="{{ cb.phone_number }}" required>
                                 </div>
                             </div>
                         </div>
